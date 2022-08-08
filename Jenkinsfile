@@ -7,7 +7,7 @@ pipeline {
         ARTIFACT_NAME = "hello-world.jar"
         AWS_EB_APP_NAME = "java-maven-mshaikh"
         AWS_EB_APP_VERSION = "${BUILD_ID}"
-        AWS_EB_ENVIRONMENT = "Javamavenmshaikh-env-1"
+        AWS_EB_ENVIRONMENT = "Javamavenmshaikh-env-2"
         SONAR_IP = "52.23.193.18"
         SONAR_TOKEN = "sqp_7e2299be211607c31229ee95e5d10ed188331697"
     }
