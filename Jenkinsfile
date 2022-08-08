@@ -4,7 +4,7 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('mshaikh-aws-secret-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('mshaikh-aws-secret-access-key')
         AWS_S3_BUCKET = "mshaikh-belt2d2-artifacts-123456"
-        ARTIFACT_NAME = "hello-world.war"
+        ARTIFACT_NAME = "hello-world.jar"
         AWS_EB_APP_NAME = "java-maven-mshaikh"
         AWS_EB_APP_VERSION = "${BUILD_ID}"
         AWS_EB_ENVIRONMENT = "Javamavenmshaikh-env"
@@ -51,14 +51,14 @@ pipeline {
             }
             post{
                 success{
-                    archiveArtifacts artifacts: '**/target/**.war', followSymlinks: false
+                    archiveArtifacts artifacts: '**/target/**.jar', followSymlinks: false
                 }
             }
         }
         stage('Publish artifacts to S3 Bucket') {
             steps {
                 sh "aws configure set region us-east-1"
-                sh "aws s3 cp ./target/**.war s3://$AWS_S3_BUCKET/$ARTIFACT_NAME"
+                sh "aws s3 cp ./target/**.jar s3://$AWS_S3_BUCKET/$ARTIFACT_NAME"
             }
          }
         stage('Deploy') {
