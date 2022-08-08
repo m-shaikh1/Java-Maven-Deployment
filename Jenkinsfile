@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCESS_KEY_ID = credentials('mshaikh-aws-secret-access-key-id')
+        AWS_ACCESS_KEY_ID = credentials('mshaikh-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('mshaikh-aws-secret-access-key')
         AWS_S3_BUCKET = "mshaikh-belt2d2-artifacts-123456"
         ARTIFACT_NAME = "hello-world.jar"
